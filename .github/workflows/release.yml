@@ -23,8 +23,6 @@ jobs:
           java-version: '17'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Build App Release
-        run: npm run build
       - name: Build
         run: ./gradlew bundleRelease
       - name: Publish Release
@@ -32,4 +30,4 @@ jobs:
         with:
           make_latest: true
           files: |
-            build/outputs/apk/release/asteroids-${{ github.ref_name }}-release-unsigned.apk
+            app/build/outputs/apk/release/asteroids-${{ github.ref_name }}-release-unsigned.apk
