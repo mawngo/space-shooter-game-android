@@ -6,6 +6,8 @@ on:
     # run only against tags
     tags:
       - "*"
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -24,7 +26,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Build
-        run: ./gradlew bundleRelease
+        run: ./gradlew assembleRelease
       - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
