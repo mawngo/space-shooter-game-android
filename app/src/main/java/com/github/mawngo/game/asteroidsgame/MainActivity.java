@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         WebView webview = findViewById(R.id.webview);
         webview.setWebViewClient(new GameWebViewClient());
+        webview.addJavascriptInterface(new GameWebViewInterface(this, webview), "IntegrationHooks");
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
