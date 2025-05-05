@@ -14,7 +14,7 @@ android {
         versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        setProperty("archivesBaseName", "asteroids-${versionName}")
+        setProperty("archivesBaseName", "asteroids-v${versionName}")
     }
 
     buildTypes {
