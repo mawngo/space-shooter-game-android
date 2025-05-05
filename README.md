@@ -1,4 +1,4 @@
-### Asteroids Game Android
+# Asteroids Game Android
 
 [Play Online](https://mawngo.github.io/space-shooter-game/) | [Download](https://github.com/mawngo/space-shooter-game-android/releases/latest)
 
