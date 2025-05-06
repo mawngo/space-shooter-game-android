@@ -25,11 +25,25 @@ jobs:
           java-version: '17'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+      - name: Setup Keystore
+        run: |
+          echo "$KEYSTORE" | base64 --decode > keystore.jks
+          ls keystore.jks
+        env:
+          KEYSTORE: ${{ secrets.KEYSTORE }}
       - name: Build
-        run: ./gradlew assembleRelease
+        run: |
+          ./gradlew assembleRelease
+          ./gradlew :app:packageReleaseUniversalApk
+        env:
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
       - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
+          tag_name: v0.1.0
           files: |
-            app/build/outputs/apk/release/asteroids-${{ github.ref_name }}-release-unsigned.apk
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/apk_from_bundle/release/*.apk
