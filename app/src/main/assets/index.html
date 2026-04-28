@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Asteroids Game</title>
+  <script type="module" crossorigin src="./assets/init-CmATyDNh.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/init-y7xLZlUF.css">
+</head>
+<body style="background-image: url('img/universe_dark.jpg')">
+<header
+    style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100vh; padding-bottom: 0;padding-top: 0">
+    <div></div>
+    <div>
+        <h1 style="display: flex; justify-content: center; align-items: center; font-size: 4rem">Aster<img
+            alt="Asteroids Game" src="img/center.png" style="height: 3.5rem; padding-top: 1rem">ids</h1>
+        <p>A space shooter game.</p>
+    </div>
+
+    <div>
+        <h1><a href="game.html" style="text-decoration: none">Play Game</a></h1>
+        <h2><a href="guide.html" style="text-decoration: none">Guide</a></h2>
+        <h2 id="quit" style="opacity: 0"><a href="#" style="text-decoration: none; cursor: pointer">Quit</a></h2>
+    </div>
+    <div>
+        <img alt="Asteroids Game" src="icons/shipIcon.png" height="70">
+        <h3 id="high">High Score: 0</h3>
+    </div>
+    <div></div>
+    <div id="version" style="position: absolute; bottom: 1rem; right: 1rem"></div>
+</header>
+<script  src="__neutralino_globals.js"></script>
+<script>
+    document.addEventListener("gameVersion", e => {
+        if (e.detail && e.detail.gameVersion) {
+            document.getElementById("version").innerHTML = `v${e.detail.gameVersion}`
+        }
+    });
+    const highScore = Number(localStorage.getItem("highScore") || "0");
+    const highLevel = Number(localStorage.getItem("highLevel") || "0");
+    if (highLevel && highScore) {
+        document.getElementById("high").innerHTML = `High Score: ${highScore} (Level ${highLevel})`
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Asteroids Game</title>
+    <style>
+        * {
+            touch-action: manipulation;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        #overlay {
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 2;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+            animation: slideInOut 1.2s ease-in-out;
+        }
+
+        #overlay.visible {
+            opacity: 1;
+            visibility: visible;
+            display: flex;
+        }
+
+        @keyframes slideInOut {
+            0% {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-200px);
+            }
+
+            100% {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/game-BKVHeFlr.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/init-CmATyDNh.js">
+  <link rel="stylesheet" crossorigin href="./assets/init-y7xLZlUF.css">
+</head>
+<body style="background: black; touch-action: none;">
+<div id="overlay">
+    <header style="text-align: center">
+        <h1 style="font-size: 5rem">You Lose</h1>
+        <h1><a href="#" style="text-decoration: none; cursor: pointer" onclick="window.location.reload()">Play Again</a>
+        </h1>
+        <h2><a href="index.html" style="text-decoration: none">Home</a></h2>
+        <h2 id="quit" style="opacity: 0"><a href="#" style="text-decoration: none; cursor: pointer">Quit</a></h2>
+    </header>
+</div>
+<div id="img-dir">
+    <img alt="ship" src="img/ship.png" id="ship" style="display: none">
+    <img alt="planet" src="img/center.png" id="center" style="display: none">
+</div>
+<canvas id="screen"
+        style="max-height: 100vh; max-width: 100vw; background: url('img/universe_dark.jpg'); touch-action: none;"></canvas>
+<script  src="__neutralino_globals.js"></script>
+</body>
+</html>

@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         WebView webview = findViewById(R.id.webview);
-        webview.setWebViewClient(new GameWebViewClient());
+        webview.setWebViewClient(new GameWebViewClient(this));
         webview.addJavascriptInterface(new GameWebViewInterface(this, webview), "IntegrationHooks");
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
-        webview.loadUrl("https://mawngo.github.io/space-shooter-game/?gameControlMode=touch");
+        webview.loadUrl("https://appassets.androidplatform.net/assets/index.html?gameControlMode=touch");
     }
 }
