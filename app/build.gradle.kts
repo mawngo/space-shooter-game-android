@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.github.mawngo.game.asteroidsgame"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.github.mawngo.game.asteroidsgame"
+        applicationId = "com.mawngodev.asteroidsgame"
         minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "0.2.0"
+        targetSdk = 36
+        versionCode = 3
+        versionName = "0.3.0"
         buildToolsVersion = "35.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
