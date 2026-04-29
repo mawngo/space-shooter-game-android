@@ -26,6 +26,10 @@ class GameWebViewInterface {
                     : pInfo.versionName + "." + version;
             activity.runOnUiThread(() -> {
                 webView.evaluateJavascript("localStorage.setItem('gameVersion', '" + appVer + "')", null);
+                webView.evaluateJavascript("document.dispatchEvent(new CustomEvent(\"gameVersion\", {\n" +
+                        "        detail: { gameVersion: window.localStorage.getItem(\"gameVersion\") },\n" +
+                        "        bubbles: true\n" +
+                        "    }));", null);
             });
         } catch (Exception e) {
             Log.e("GameWebViewInterface", "onGameVersion: ", e);
