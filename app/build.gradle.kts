@@ -12,8 +12,8 @@ android {
         applicationId = "com.mawngodev.asteroidsgame"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.3.1"
+        versionCode = 5
+        versionName = "0.3.2"
         buildToolsVersion = "35.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
